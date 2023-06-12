@@ -16,5 +16,8 @@ export const useWindowWidth = () => {
     }
   }, [])
 
-  return windowWidth
+  return windowWidth // windowWidth will return integer value of the window's width
 }
+
+// usage
+// const windowWidth = useWindowWidth()

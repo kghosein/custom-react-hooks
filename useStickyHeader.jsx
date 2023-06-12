@@ -20,5 +20,8 @@ export const useStickyHeader = (scrollFromTop) => {
     }
   }, [])
 
-  return isVisible
+  return isVisible // isVisible will return boolean value
 }
+
+// usage
+// const { isVisible } = useStickyHeader(100) // 100 is threshold 
