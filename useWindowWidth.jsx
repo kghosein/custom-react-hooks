@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import throttle from "lodash.throttle"
 
 export const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(() => window.innerWidth)
 
   useEffect(() => {
     const handleResize = throttle(() => {
@@ -16,8 +16,8 @@ export const useWindowWidth = () => {
     }
   }, [])
 
-  return windowWidth // windowWidth will return integer value of the window's width
+  return { windowWidth } // windowWidth will return integer value of the window's width
 }
 
 // usage
-// const windowWidth = useWindowWidth()
+// const { windowWidth } = useWindowWidth()

@@ -7,9 +7,9 @@ export const useScrollToTop = () => {
     });
   };
 
-  return scrollToTop // this will return scrollToTop function
+  return { scrollToTop } // this will return scrollToTop function
 }
 
 // usage
-// const scrollToTop = useScrollToTop()
+// const { scrollToTop } = useScrollToTop()
 // <button onClick={scrollToTop} value="button" type="button" /> 

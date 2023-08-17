@@ -6,7 +6,7 @@ export const useStickyHeader = (scrollFromTop) => {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      if (window.pageYOffset > scrollFromTop) {
+      if (window.scrollY > scrollFromTop) {
         setIsVisible(true)
       } else {
         setIsVisible(false)
@@ -20,7 +20,7 @@ export const useStickyHeader = (scrollFromTop) => {
     }
   }, [])
 
-  return isVisible // isVisible will return boolean value
+  return { isVisible } // isVisible will return boolean value
 }
 
 // usage
