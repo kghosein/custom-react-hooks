@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react"
 import { getLangDir } from "rtl-detect"
+
+// *** Use one of the hooks
+
+// *** using `franc` library ***
 import { franc } from "franc"
 import langs from "langs"
 
@@ -40,6 +44,33 @@ export const useDetectLang = (str) => {
 
   return { localeLang }
 }
+
+// *** using `languagedetect` library ***
+import LanguageDetect from "languagedetect"
+
+export const useDetectLang = (str) => {
+  const [localeLang, setLocaleLang] = useState(() => "")
+  const [langDir, setLangDir] = useState(() => "")
+  const lngDetector = new LanguageDetect()
+
+  useEffect(() => {
+    try {
+      // get iso639_2 code of the locale text
+      // see lang codes here https://www.loc.gov/standards/iso639-2/php/code_list.php
+      lngDetector.setLanguageType("iso2")
+      let detectLang = lngDetector.detect(str, 1)
+      let textLang = detectLang[0][0]
+
+      // get lang direction
+      let langDir = getLangDir(textLang)
+
+      setLocaleLang(textLang)
+      setLangDir(langDir)
+    } catch (err) { }
+  }, [str])
+
+  return { localeLang, langDir }
+};
 
 // usage 
 // const text = "Direction can be described in relative terms that compare the position of something to another object, such as up, down, in, out, left, right, forward, backward, or sideways."

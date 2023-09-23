@@ -1,3 +1,5 @@
+// *** Note: It is recommended to use this https://react-hookz.github.io/web/?path=/docs/dom-usewindowsize--example custom hook to instead of the below custom hook.
+
 import { useState, useEffect } from "react"
 import throttle from "lodash.throttle"
 

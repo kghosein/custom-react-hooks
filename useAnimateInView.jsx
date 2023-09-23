@@ -1,7 +1,7 @@
 import { useAnimation, useInView } from "framer-motion"
 import { useEffect, useRef } from "react"
 
-export const useAnimateOnScroll = (inView) => {
+export const useAnimateInView = (inView) => {
   const ref = useRef(null)
   const control = useAnimation()
 
@@ -9,6 +9,8 @@ export const useAnimateOnScroll = (inView) => {
     once: false,
     amount: inView // inView is elements' threshold
   })
+
+  // *** Use one of the side effects
 
   // *** animate elements when they enter and leave the viewport ***
   // useEffect(() => {
@@ -42,7 +44,7 @@ export const useAnimateOnScroll = (inView) => {
 }
 
 // usage
-// const { ref, control } = useAnimateOnScroll(0.4)
+// const { ref, control } = useAnimateInView(0.4)
 {/* <motion.div
   ref={ref}
   initial={"hidden"}
@@ -53,8 +55,8 @@ export const useAnimateOnScroll = (inView) => {
 </motion.div>  */}
 
 // if you want to animate multiple elements within the same container
-// const { ref: containerRef, control: containerControl } = useAnimateOnScroll(0.4)
-// const { ref: headingRef, control: headingControl } = useAnimateOnScroll(0.7)
+// const { ref: containerRef, control: containerControl } = useAnimateInView(0.4)
+// const { ref: headingRef, control: headingControl } = useAnimateInView(0.7)
 {/* <motion.div
   ref={containerRef}
   initial={"hidden"}

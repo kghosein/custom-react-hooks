@@ -32,7 +32,7 @@ export const useParseMarkdown = (mdFilePath) => {
 // ** Note: If you are using Vite 
 // markdown imports are allowed from `public` dir only 
 // so put your markdown files in under `markdown` folder in `public` dir in case of Vite
-// but in case of CRA you can import from anywhere in your app **
+// but in case of CRA you can import from anywhere in your app
 
 // here we have used `markdown-to-jsx` library to render markdown but you are open to use any markdown rendering library
 
