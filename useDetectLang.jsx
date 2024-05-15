@@ -73,6 +73,19 @@ export const useDetectLang = (str) => {
 };
 
 // usage 
+// *** hook usage ***
 // const text = "Direction can be described in relative terms that compare the position of something to another object, such as up, down, in, out, left, right, forward, backward, or sideways."
 // const { localeLang } = useDetectLang(text)
 // console.log(localeLang)
+// *** LocaleProvider component ***
+// const LocaleProvider = ({ content }) => {
+//   const { localeLang, langDir } = useDetectLang(content)
+//   return (
+//     <p
+//       data-locale-lang={localeLang ? localeLang : null}
+//       data-lang-dir={langDir ? langDir : null}
+//     >
+//       {content}
+//     </p>
+//   )
+// }
